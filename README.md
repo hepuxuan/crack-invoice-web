@@ -7,3 +7,7 @@
 ## run the application
 
 ```npm run dev```
+
+## open browser
+
+localhost:5000
