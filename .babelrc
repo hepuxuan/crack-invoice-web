@@ -1,0 +1,15 @@
+{
+    "presets": [
+        "es2015",
+        "es2016",
+        "stage-0",
+        "react"
+    ],
+    "plugins": [
+        "transform-runtime",
+        "transform-class-properties",
+        "babel-plugin-syntax-trailing-function-commas",
+        "babel-plugin-transform-class-properties",
+        "babel-plugin-transform-object-rest-spread"
+    ]
+}
