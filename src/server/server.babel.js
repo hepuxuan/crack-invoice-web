@@ -20,7 +20,9 @@ app.use('/', express.static('public'));
 wss.on('connection', (webSocket) => {
     const location = url.parse(webSocket.upgradeReq.url, true);
     const clientId = location.query.clientId;
-    webSocketMap[clientId] = webSocket;
+    if (clientId) {
+        webSocketMap[clientId] = webSocket;
+    }
 
     webSocket.on('close', function close() {
         console.log(`closing:${clientId}`);
