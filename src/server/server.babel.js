@@ -3,7 +3,7 @@ const url = require('url');
 const wss = new require('ws').Server({ server: server, path: '/ws' });
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 5000;
 const MESSAGE_TYPE = require('../message-type');
 const WebSocketUtils = require('../web-socket-utils');
 

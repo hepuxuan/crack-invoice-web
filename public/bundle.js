@@ -23349,7 +23349,7 @@
 	}
 	
 	function getSocketHostUrl() {
-	    return 'ws://' + window.location.host + '/ws';
+	    return (window.location.protocol === "https:" ? 'wws' : 'ws') + '://' + window.location.host + '/ws';
 	}
 
 /***/ },
