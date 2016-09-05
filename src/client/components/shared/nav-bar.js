@@ -15,7 +15,7 @@ export default function CINavBar(props) {
                     <Link role="button" to={routes.INDEX_PATH}>主页</Link>
                 </li>
                 <li className={getClassName(routes.LOGIN_PATH)}>
-                    <Link role="button" to={routes.LOGIN_PATH}>重新登录</Link>
+                    <Link role="button" to={routes.LOGIN_PATH}>退出</Link>
                 </li>
             </ul> 
             <hr/>
