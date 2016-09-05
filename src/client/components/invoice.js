@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { FieldGroup } from './shared/index'
+import { FieldGroup } from './shared/index';
+import {LOGIN_PATH} from './routes';
+import { Link } from 'react-router';
 
 export default class Invoice extends Component {
     constructor() {
@@ -51,7 +53,18 @@ export default class Invoice extends Component {
     render() {
         return (
             <div>
+                {
+                    !this.props.login ? (
+                        <div className="alert-warning alert">
+                            <strong>警告! </strong>
+                            您还未连接至手机客户端，请先
+                            <Link to={LOGIN_PATH}>登录</Link>
+                        </div>
+                    ) :  null
+                }
+                
                 <h2>增值税表</h2>
+                <hr/>
                 <form>
                     <FieldGroup
                         type="text"

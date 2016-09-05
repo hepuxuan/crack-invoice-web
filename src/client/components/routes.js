@@ -15,12 +15,15 @@ function Root(props) {
     );
 }
 
+export const INDEX_PATH = '/index';
+export const LOGIN_PATH = '/login';
+
 export default function Routes(props) {
     return (
         <Router history={props.history}>
             <Route path="/" component={Root}>
-                <Route path="index" component={InvoiceContainer}/>
-                <Route path="login" component={LoginContainer}/>
+                <Route path={INDEX_PATH} component={InvoiceContainer}/>
+                <Route path={LOGIN_PATH} component={LoginContainer}/>
             </Route>
          </Router>
     );

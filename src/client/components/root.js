@@ -7,8 +7,8 @@ export default function Root(props) {
 
     return (
         <div>
-            <CINavBar {...navBarProps}/>
             <div className="page-body">
+                <CINavBar {...navBarProps}/>
                 {props.children}
             </div>
         </div>
