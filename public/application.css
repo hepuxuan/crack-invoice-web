@@ -10,3 +10,18 @@ canvas {
 input {
     margin-bottom: 5px;
 }
+
+.page-body {
+    padding-right: 15px;
+    padding-left: 15px;
+    max-width: 1024px;
+    margin: auto;
+}
+
+.nav {
+    background: #2c3840;
+}
+
+h2 {
+    text-align: center;
+}

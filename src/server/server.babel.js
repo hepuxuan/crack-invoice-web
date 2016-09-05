@@ -6,20 +6,16 @@ const app = express();
 const port = process.env.PORT || 5000;
 const WebSocketUtils = require('../web-socket-utils');
 
-const mockInvoice = {
-    companyName: 'companyName',
-    address: 'address1',
-    phone: '341123'
-};
-
 const webSocketMap = {};
 
-app.use('/', express.static('public'));
+app.use('/index', express.static('public'));
+app.use('/login', express.static('public'));
 
 wss.on('connection', (webSocket) => {
     const location = url.parse(webSocket.upgradeReq.url, true);
     const clientId = location.query.clientId;
     if (clientId) {
+        console.log(`connected with client:${clientId}`);
         webSocketMap[clientId] = webSocket;
     }
 

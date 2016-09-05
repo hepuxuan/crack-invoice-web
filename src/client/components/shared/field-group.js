@@ -1,33 +1,33 @@
 import React, { Component } from 'react';
-import { FormGroup, ControlLabel, FormControl, Col, Button} from 'react-bootstrap';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
 export default class FieldGroup extends Component {
 
     handleCopy(event) {
         event.preventDefault();
-
     }
 
     render() {
+        const props = {...this.props};
+        delete props.class;
         return (
-            <FormGroup controlId={this.props.id}>
-                <Col sm={2}>
-                    <ControlLabel>{this.props.label}</ControlLabel>
-                </Col>
-                <Col sm={8}>
-                    <FormControl {...this.props} ref="myInput"/>
-                </Col>
-                <Col sm={2}>
+            <div className="input-group">
+                <input {...this.props} className={`input-group-field ${this.props.class}`}/>
+                <div className="input-group-button">
                     <CopyToClipboard text={this.props.value}>
-                        <Button bsStyle="primary" type="button">复制</Button>
+                        <button className="hollow button" href="#" onClick={this.handleCopy}>复制</button>
                     </CopyToClipboard>
-                </Col>
-            </FormGroup>
+                </div>
+            </div>
         );
     }
 }
 
 FieldGroup.defaultProps = {
     value: ''
+};
+
+FieldGroup.propTypes = {
+    value: React.PropTypes.string,
+    class: React.PropTypes.string
 };

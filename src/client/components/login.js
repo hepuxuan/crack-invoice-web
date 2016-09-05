@@ -1,25 +1,26 @@
-import React from 'react';
-import CINavBar from './nav-bar';
+import React, { Component } from 'react';
 import QRCode from 'qrcode.react';
-import { Modal } from 'react-bootstrap';
+import * as uuid from 'node-uuid';
 
-export function Login(props) {
-    return (
-        <div>
-            <QRCode size={256} value={props.value} />
-        </div>
-    );
+function getQRCodeValue(clientId) {
+    return JSON.stringify({
+        clientId: clientId
+    });
 }
 
-export default function LoginModal(props) {
-    return (
-        <Modal show={props.show}>
-            <Modal.Header>
-                <Modal.Title>请扫描二维码登陆</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <Login value={props.value}/>
-            </Modal.Body>
-        </Modal>
-    );
+export default class Login extends Component {
+    componentDidMount() {
+        this.props.updateClientId(uuid.v4());
+        this.props.initWebSocket();
+        this.props.logout();
+    }
+
+    render() {
+        return (
+            <div>
+                <h2>请扫描二维码登陆</h2>
+                <QRCode size={256} value={getQRCodeValue(this.props.clientId)} />
+            </div>
+        );
+    }
 }
