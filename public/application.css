@@ -39,3 +39,12 @@ hr {
     border: 1px solid transparent;
     border-radius: 4px;
 }
+
+body {
+    background-image: url("weather.png");
+    background-repeat: repeat-xy;
+    /*-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;*/
+}
