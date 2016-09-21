@@ -10,6 +10,7 @@ export default function Root(props) {
             <div className="page-body">
                 <CINavBar {...navBarProps}/>
                 {props.children}
+                <div className='blur'/>
             </div>
         </div>
     );

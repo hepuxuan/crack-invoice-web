@@ -18,9 +18,11 @@ export default class Login extends Component {
     render() {
         return (
             <div>
-                <h2>请扫描二维码登陆</h2>
-                <hr/>
-                <QRCode size={256} value={getQRCodeValue(this.props.clientId)} />
+                <div>
+                    <h2>请扫描二维码登陆</h2>
+                    <hr/>
+                    <QRCode size={256} value={getQRCodeValue(this.props.clientId)} />
+                </div>
             </div>
         );
     }
