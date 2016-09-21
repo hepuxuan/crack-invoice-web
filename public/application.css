@@ -17,8 +17,10 @@ input {
     max-width: 1024px;
     margin: auto;
     background-color: rgba(255, 255, 255, 0.8);
-    padding-bottom: 30px;
+    padding-bottom: 40px;
     position: relative;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 h2 {
@@ -50,7 +52,7 @@ body {
 
 .blur {
     position: absolute;
-    width : 100%;
+    width: 100%;
     height: 100%;
     top: 0;
     left: 0;
@@ -59,8 +61,8 @@ body {
     background: url('pen2.jpg') no-repeat bottom center fixed;
     background-size: cover;
 
-    filter        : blur(3px);
-    -moz-filter   : blur(3px);
+    filter: blur(3px);
+    -moz-filter: blur(3px);
     -webkit-filter: blur(3px);
-    -o-filter     : blur(3px);
+    -o-filter: blur(3px);
 }
