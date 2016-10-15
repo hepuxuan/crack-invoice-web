@@ -21,7 +21,7 @@ export default function CINavBar (props) {
             </Link>
           </li>
         </ul>
-        <hr/>
+        <hr />
       </div>
     )
   } else {
@@ -37,7 +37,7 @@ export default function CINavBar (props) {
             </Link>
           </li>
         </ul>
-        <hr/>
+        <hr />
       </div>
     )
   }

@@ -3,7 +3,6 @@ var webpack = require('webpack')
 // var PROD = (process.env.NODE_ENV === 'production')
 
 module.exports = {
-  devtool: 'source-map',
   entry: './src/client/index.js',
   output: {
     path: './public',

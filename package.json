@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack -w",
+    "webpack": "webpack",
     "express-server": "node ./server",
     "dev": "concurrently --kill-others \"npm run webpack\" \"npm run express-server\"",
     "build": "NODE_ENV=production npm run webpack",
