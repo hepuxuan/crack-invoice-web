@@ -1,12 +1,12 @@
 import * as actions from '../actions/index'
 
-const initial_state = {
+const initialState = {
   invoice: {},
   login: false,
   clientId: null
 }
 
-export const reducer = (state = initial_state, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.UPDATE_INVOICE:
       return Object.assign({}, state, {
@@ -18,7 +18,8 @@ export const reducer = (state = initial_state, action) => {
       })
     case actions.LOGOUT:
       return Object.assign({}, state, {
-        login: false
+        login: false,
+        invoice: {}
       })
     case actions.UPDATE_CLIENT_ID:
       return Object.assign({}, state, {
