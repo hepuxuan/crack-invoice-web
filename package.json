@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack",
+    "webpackWatch": "webpack -w",
     "express-server": "node ./server",
-    "dev": "concurrently --kill-others \"npm run webpack\" \"npm run express-server\"",
+    "dev": "concurrently --kill-others \"npm run webpackWatch\" \"npm run express-server\"",
     "build": "NODE_ENV=production npm run webpack",
     "start": "npm run express-server"
   },
