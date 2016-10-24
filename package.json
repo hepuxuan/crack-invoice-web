@@ -9,7 +9,7 @@
     "express-server": "node ./server",
     "dev": "concurrently --kill-others \"npm run webpackWatch\" \"npm run express-server\"",
     "build": "NODE_ENV=production npm run webpack",
-    "start": "concurrently --kill-others \"npm run build\" \"npm run express-server\""
+    "start": "npm run express-server"
   },
   "repository": {
     "type": "git",
@@ -51,9 +51,7 @@
     "redux": "^3.2.1",
     "redux-thunk": "^1.0.3",
     "webpack": "^1.13.2",
-    "ws": "1.1.1"
-  },
-  "devDependencies": {
+    "ws": "1.1.1",
     "concurrently": "^2.2.0"
   },
   "engines": {

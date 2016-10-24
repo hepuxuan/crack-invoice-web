@@ -8,11 +8,11 @@ const WebSocketUtils = require('../web-socket-utils')
 
 const webSocketMap = {}
 
-app.use('/login', express.static('public'))
+app.use('/', express.static('public'))
 
-app.get('*', function (req, res) {
-  res.redirect('/login')
-})
+// app.get('*', function (req, res) {
+//   res.redirect('/login')
+// })
 
 wss.on('connection', (webSocket) => {
   const location = url.parse(webSocket.upgradeReq.url, true)
