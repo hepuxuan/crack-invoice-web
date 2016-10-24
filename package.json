@@ -9,7 +9,7 @@
     "express-server": "node ./server",
     "dev": "concurrently --kill-others \"npm run webpackWatch\" \"npm run express-server\"",
     "build": "NODE_ENV=production npm run webpack",
-    "start": "npm run express-server"
+    "start": "concurrently --kill-others \"npm run build\" \"npm run express-server\""
   },
   "repository": {
     "type": "git",
