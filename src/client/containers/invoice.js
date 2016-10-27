@@ -13,8 +13,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 const mapStateToProps = (state) => {
   return {
-    invoice: state.app.invoice,
-    login: state.app.login
+    invoice: state.invoice,
+    login: state.login
   }
 }
 

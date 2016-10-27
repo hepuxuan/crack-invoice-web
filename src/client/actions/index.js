@@ -1,5 +1,5 @@
 import createWebSocketConnection from '../web-socket/index'
-import { push } from 'react-router-redux'
+import { hashHistory } from 'react-router'
 
 export const UPDATE_INVOICE = 'UPDATE_INVOICE'
 
@@ -37,10 +37,10 @@ export function initWebSocket () {
       },
       onLoginSuccess: () => {
         dispatch(loginSuccess)
-        dispatch(push('/index'))
+        hashHistory.push('/index')
       }
     }
 
-    createWebSocketConnection(callbacks, getState().app.clientId)
+    createWebSocketConnection(callbacks, getState().clientId)
   }
 }
