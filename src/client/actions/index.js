@@ -1,43 +1,39 @@
+/* globals localStorage */
+
 import createWebSocketConnection from '../web-socket/index'
-import { hashHistory } from 'react-router'
+import * as uuid from 'node-uuid'
 
-export const UPDATE_INVOICE = 'UPDATE_INVOICE'
-
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
-
-export const LOGOUT = 'LOGOUT'
+export const ADD_INVOICE = 'ADD_INVOICE'
 
 export const UPDATE_CLIENT_ID = 'UPDATE_CLIENT_ID'
 
-export const loginSuccess = {
-  type: LOGIN_SUCCESS
+export function generateClientId () {
+  return (dispatch) => {
+    const clientId = localStorage.getItem('clientId') || uuid.v4()
+    localStorage.setItem('clientId', clientId)
+    dispatch(updateClientId(clientId))
+  }
 }
 
-export const logout = {
-  type: LOGOUT
-}
-
-export function updateClientId (clientId) {
+function updateClientId (clientId) {
   return {
     type: UPDATE_CLIENT_ID,
-    clientId}
+    clientId
+  }
 }
 
-export function updateInvoice (invoice) {
+export function addInvoice (invoice) {
   return {
-    type: UPDATE_INVOICE,
-    invoice}
+    type: ADD_INVOICE,
+    invoice
+  }
 }
 
 export function initWebSocket () {
   return (dispatch, getState) => {
     const callbacks = {
       onReceiveInvoice: (invoice) => {
-        dispatch(updateInvoice(invoice))
-      },
-      onLoginSuccess: () => {
-        dispatch(loginSuccess)
-        hashHistory.push('/index')
+        dispatch(addInvoice(invoice))
       }
     }
 

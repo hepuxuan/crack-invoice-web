@@ -1,16 +1,15 @@
 import React from 'react'
-import CINavBar from './shared/nav-bar'
+import {CINavBar} from './shared'
 const { object } = React.PropTypes
 
 export default function Root (props) {
-  const navBarProps = {...props}
-  delete navBarProps.children
+  const {children, ...navBarProps} = props
 
   return (
     <div>
       <div className='page-body'>
-        <CINavBar {...navBarProps}/>
-        {props.children}
+        <CINavBar {...navBarProps} />
+        {children}
         <div className='blur' />
       </div>
     </div>

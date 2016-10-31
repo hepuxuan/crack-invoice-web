@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import QRCode from 'qrcode.react'
-import * as uuid from 'node-uuid'
 const { func, string } = React.PropTypes
 
 function getQRCodeValue (clientId) {
@@ -9,18 +8,17 @@ function getQRCodeValue (clientId) {
   })
 }
 
-export default class Login extends Component {
+export default class QrCode extends Component {
   componentDidMount () {
-    this.props.updateClientId(uuid.v4())
+    this.props.generateClientId()
     this.props.initWebSocket()
-    this.props.logout()
   }
 
   render () {
     return (
       <div>
         <div>
-          <h2>请扫描二维码登陆</h2>
+          <h2>您当前的二维码</h2>
           <hr />
           <QRCode size={256} value={getQRCodeValue(this.props.clientId)} />
         </div>
@@ -29,9 +27,8 @@ export default class Login extends Component {
   }
 }
 
-Login.propTypes = {
-  updateClientId: func,
+QrCode.propTypes = {
+  generateClientId: func,
   clientId: string,
-  initWebSocket: func,
-  logout: func
+  initWebSocket: func
 }

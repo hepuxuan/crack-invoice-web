@@ -7,6 +7,7 @@ let ws = null
 
 export default function createWebSocketConnection (callbacks, clientId) {
   if (ws) {
+    // kill current connection
     ws.onclose = () => {
     }
     ws.close()
@@ -20,12 +21,6 @@ export default function createWebSocketConnection (callbacks, clientId) {
         case MESSAGE_TYPE.SEND_INVOICE:
           if (typeof callbacks.onReceiveInvoice === 'function') {
             callbacks.onReceiveInvoice(JSON.parse(message.value))
-          }
-          break
-        case MESSAGE_TYPE.LOGIN_SUCCESS:
-          console.log('login success!')
-          if (typeof callbacks.onLoginSuccess === 'function') {
-            callbacks.onLoginSuccess()
           }
           break
       }
